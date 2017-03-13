@@ -1,1 +1,336 @@
-Hello World
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" />
+    <link rel="stylesheet" href="libs/css/Aequam.css" />
+    <title>Aequam</title>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script src="bower_components/highcharts/highcharts.js"></script>
+    <script src="libs/js/AequamChart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-lg-12 headBar" style="padding-left:0px">
+            <div class="col-lg-3" style="padding-left:0px">
+                <span id="port_pro" class="frame" onclick="select(this.id)" style="color:#66CCFF">PORTFOLIO PROJECTION</span>
+            </div>
+            <div class="col-lg-3" style="padding-left:0px">
+                <span id="ret_gui" class="frame" onclick="select(this.id)">RETURN GUIDE</span>
+            </div>
+        </div>
+        <div class="headpage col-lg-12" style="padding: 0px;">
+            <div class="col-lg-3" style="margin-top: 3%;padding: 0px;">
+                <label class="title" style="display:block">SELECT A PORTFOLIO</label>
+                <select id="portfolioSelected" class="selectpicker" single>
+                    <option style="color:#038FFA;">Retirement</option>
+                    <option style="color:#038FFA;">House</option>
+                    <option style="color:#038FFA;">Investment</option>
+                </select>
+            </div>
+            <div class="col-lg-7" style="margin-top: 3%;padding: 0px 0px 0px 2%;">
+                <div class="col-lg-3">
+                    <label class="title">ACCOUNT TYPE</label>
+                    <h4 class="content">Individual Account</h4>
+                </div>
+                <div class="col-lg-3">
+                    <label class="title">GOAL TYPE</label>
+                    <h4 class="content">Retirement Growth</h4>
+                </div>
+                <div class="col-lg-3">
+                    <label class="title">TARGET</label>
+                    <h4 class="content">$2,5678,890.00</h4>
+                </div>
+                <div class="col-lg-3">
+                    <label class="title">BALANCE</label>
+                    <h4 class="content">$0.00</h4>
+                </div>
+            </div>
+            <div class="col-lg-2" style="margin-top: 3%;padding: 0px;">
+                <button class="btn btn-aequam btn-md" style="margin-left:40%">&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+        <div class="mainpage col-lg-12">
+            <div class="col-lg-3 allocation" id="allocations">
+                <label class="title" style="display:block">ALLOCATION</label>
+                <label class="title" id="stock" style="display:block">40% Stock</label>
+                <input id="stockSlider" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="40" />
+                <label class="title" style="display:inline">Bonds</label>
+                <label class="title" style="float:right;display:inline">Stocks</label>
+                <div class='Shadow-block'>
+                    <label style="display:block;font-size: 0.1px;color: #7f848e;">Risk</label>
+                    <h3 style="display:inline;color: #9fa5ad;">Moderate</h3>
+                </div>
+                <div id="StockChart" style="height:300px;width:100%;margin-top: 0px;padding:0px"></div>
+                <div id="comp1" class="composition text-center" style="border-right: solid 0.5px #aeb4b7; padding-right:2%">
+                    <h2 style="margin-top:10%;margin-bottom:7%">40</h2>
+                    <p style="color: #7f848e; font-size:8px">STOCKS</p>
+                </div>
+                <div id="comp2" class="composition text-center" style="padding-left: 2%">
+                    <h2 style="margin-top:10%;margin-bottom:7%">60</h2>
+                    <p style="color: #7f848e; font-size:8px">BONDS</p>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-aequam btn-md" style="margin-left: auto; margin-right: auto; align:center">&nbsp;&nbsp;&nbsp;&nbsp;See current holdings&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                </div>
+                <div style="border-style: solid;border-width: 1px 0px 1px 0px; height:1px; margin:8% 0 8% 0;border-color: #bcc3c6;"></div>
+                <div id="questions">
+                    <a href="#">Why goal-based investing?</a>&nbsp;<span style="color:#7f848e">〉</span>
+                    <br>
+                    <a href="#">Why this stock allocation?</a>&nbsp;<span style="color:#7f848e">〉</span>
+                    <br>
+                    <a href="#">About our projections</a>&nbsp;<span style="color:#7f848e">〉</span>
+                </div>
+            </div>
+            <div class="col-lg-9 details">
+                <div class="col-lg-4">
+                    <label class="title" style="margin-top:8%;display:inline">RETIREMENT AGE</label>
+                    <button class="btn btn-save btn-xs" style="display: inline; float:right">&nbsp;&nbsp;Save&nbsp;&nbsp;</button>
+                    <div class="input-group" id="age_div" style="margin-top:6%">
+                        <input id="retire_age" type="text" style="width:100%;color:#6aa9fc" value=65 />
+                    </div>
+                    <div class='Shadow-block'>
+                        <label style="display:block;font-size: 0.1px;color: #7f848e;margin-bottom:6%">Recommanded</label>
+                        <h3 class="recommandation">Age 65</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <label class="title" style="margin-top:8%;display:inline">MONTHLY AUTO-DEPOSIT</label>
+                    <button class="btn btn-save btn-xs" style="display: inline; float:right">&nbsp;&nbsp;Save&nbsp;&nbsp;</button>
+                    <div class="input-group" id="mon_div" style="margin-top:6%;width:100%;">
+                        <span class="input-group-addon" style="padding: 0px 12px;">$</span>
+                        <input id="monthly_deposit" type="text" style="width:100%;color:#6aa9fc" value=2000 />
+                    </div>
+                    <div class='Shadow-block'>
+                        <label style="display:block;font-size: 0.1px;color: #7f848e;margin-bottom:6%">Recommanded</label>
+                        <h3 class="recommandation">$2,000.00</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="border-right:0px">
+                    <label class="title" style="margin-top:8%;display:inline">ONE-TIME DEPOSIT</label>
+                    <button class="btn btn-save btn-xs" style="display: inline; float:right">&nbsp;&nbsp;Save&nbsp;&nbsp;</button>
+                    <div class="input-group" id="dep_div" style="margin-top:6%">
+                        <span class="input-group-addon" style="padding: 0px 12px;">$</span>
+                        <input id="deposit" type="text" style="width:100%;color:#6aa9fc" value=220748.02 />
+                    </div>
+                    <div class='Shadow-block'>
+                        <label style="display:block;font-size: 0.1px;color: #7f848e;margin-bottom:6%">Recommanded</label>
+                        <h3 class="recommandation">$220,748.02</h3>
+                    </div>
+                </div>
+                <div class="col-lg-8" style="border:none;margin-bottom:0px">
+                    <div class="col-lg-6" style="border:none">
+                        <label class="title" style="display:block">AVERAGE MARKET PERFORMANCE</label>
+                        <h3 id="avg_per" style="color: #9fa5ad;font-size:20px;margin-top:4%">$2,860,019</h3>
+                    </div>
+                    <div class="col-lg-6" style="border:none">
+                        <label class="title" style="display:block">POOR MARKET PERFORMANCE</label>
+                        <h3 id="poor_per" style="color: #9fa5ad;font-size:20px;margin-top:4%">$1,251,400</h3>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="border:none;margin-top:0px;padding-bottom:0px">
+                    <div id="performance" style="width: 100%; height: 300px; margin: 0 0"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type=" text/javascript ">
+    function select(option) {
+        $('.frame').css("color", "#848484");
+        $("#" + option).css("color", "#66CCFF");
+    }
+
+    Highcharts.chart('StockChart', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: '',
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 0
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white'
+                    }
+                },
+                startAngle: 0,
+                endAngle: 360,
+                center: ['50%', '50%']
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            innerSize: '75%',
+            data: [
+                ['Firefox', 4.38],
+                ['IE', 2.33],
+                ['Chrome', 13.03],
+                ['Safari', 40.77],
+                ['Opera', 4.91],
+                ['ABC', 5.0],
+                ['DEF', 10.0],
+                ['123', 12.0], {
+                    name: 'Proprietary or Undetectable',
+                    y: 0.2,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            ]
+        }],
+        credits: {
+            enabled: false
+        },
+        colors: ['#6aa9fc', '#2f68b5', '#153015', '#265126', '#438450', '#1daa3e', '#aef93e',
+            '#69f93e', '#6AF9C4'
+        ]
+    });
+
+    $('#stockSlider').slider({
+        formatter: function(value) {
+            $('#stock').text(value + "% Stock ");
+            $('#comp1 h2').text(value);
+            $('#comp2 h2').text(100 - value);
+            return;
+        }
+    });
+
+    var StockChart = $("#StockChart");
+    var chart_pos = StockChart.position();
+    var chart_width = StockChart.width();
+    var chart_height = StockChart.height();
+
+    $("#comp1").css({
+        top: chart_pos.top + 0.4 * chart_height,
+        left: chart_pos.left + 0.25 * chart_width,
+        width: chart_width / 4,
+        height: 0.2 * chart_height
+    });
+
+    $("#comp2").css({
+        top: chart_pos.top + 0.4 * chart_height,
+        left: chart_pos.left + 0.5 * chart_width,
+        width: chart_width / 4,
+        height: 0.2 * chart_height
+    });
+
+    $(window).resize(function() {
+        var StockChart = $("#StockChart");
+        var chart_pos = StockChart.position();
+        var chart_width = StockChart.width();
+        var chart_height = StockChart.height();
+        $("#comp1").css({
+            top: chart_pos.top + 0.4 * chart_height,
+            left: chart_pos.left + 0.25 * chart_width,
+            width: chart_width / 4,
+            height: 0.2 * chart_height
+        });
+
+        $("#comp2").css({
+            top: chart_pos.top + 0.4 * chart_height,
+            left: chart_pos.left + 0.5 * chart_width,
+            width: chart_width / 4,
+            height: 0.2 * chart_height
+        });
+    });
+
+    $("#age_div").css("width", $("#dep_div").width());
+
+    $("#performance").css("height", $("#allocations").offset().top + $("#allocations").outerHeight() - $("#performance").offset().top - 1);
+
+    var data1 = [];
+    var data2 = [];
+    var data3 = [];
+
+    for (var i = 2015; i < 2040; i++) {
+        data1.push((i - 2015) * (i - 2015) * 10000);
+        data2.push(0.5 * (i - 2015) * (i - 2015) * 10000);
+        data3.push(1.5 * (i - 2015) * (i - 2015) * 10000);
+    };
+
+    Highcharts.chart('performance', {
+        chart: {
+            type: 'area'
+        },
+        title: {
+            text: null
+        },
+        xAxis: {
+            allowDecimals: false,
+            labels: {
+                formatter: function() {
+                    return this.value; // clean, unformatted number for year
+                }
+            }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            labels: {
+                formatter: function() {
+                    return this.value / 1000000 + 'M';
+                }
+            },
+            opposite: true
+        },
+        tooltip: {
+            pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+        },
+        plotOptions: {
+            area: {
+                pointStart: 2015,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    radius: 2,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Average market performance',
+            data: data1,
+            color: '#2f68b5'
+        }, {
+            name: 'Poor market performance',
+            data: data2,
+            color: '#153015'
+        }, {
+            name: 'Auto deposit and one-time deposit',
+            data: data3,
+            color: '#6aa9fc'
+        }],
+        credits: {
+            enabled: false
+        }
+    });
+    </script>
+</body>
+
+</html>

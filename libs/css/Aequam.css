@@ -1,0 +1,194 @@
+.headBar {
+	background-color: #eff3f7;
+	padding: 1% 10px 1% 10px;
+	margin-top: 3%;
+}
+
+.frame {
+	color: #848484;
+	font-size: 12px;
+	cursor: pointer;
+}
+.headpage {
+    height: 100%;
+}
+
+.pull-left {
+    float: left!important;
+    color: #038FFA!important;
+}
+
+.bootstrap-select {
+    width: 100%!important;
+}
+
+.title {
+    font-size: 0.4px;
+    display: block;
+    color: #7f848e;
+}
+
+.content {
+    font-size: 14px;
+    display: block;
+}
+
+.container {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.mainpage {
+    height: 100%;
+    padding: 0px;
+}
+
+.allocation {
+    border-style: solid;
+    border-width: 3px 1px 3px 1px;
+    border-color: #bcc3c6 #aeb4b7 #bcc3c6 #aeb4b7;
+    margin-top: 3%;
+    padding: 2% 2% 2% 2%;
+}
+
+#stock {
+    float: right;
+}
+
+.slider {
+    width: 100% !important;
+}
+
+.Shadow-block {
+    padding: 6% 6% 6% 6%;
+    margin-top: 12%;
+    background-color: #eff3f7;
+}
+
+.composition {
+    position: absolute;
+    display: inline;
+}
+
+#questions {
+    margin-left: 10%
+}
+
+#questions a {
+    color: #038FFA;
+    font-size: 14px;
+    margin-bottom: 4%;
+}
+
+.details {
+    border-style: solid;
+    border-width: 3px 1px 3px 0px;
+    border-color: #6aa9fc #aeb4b7 #bcc3c6 #aeb4b7;
+    margin-top: 3%;
+    padding: 0;
+}
+
+.details >div {
+    border-style: solid;
+    border-width: 0px 1px 3px 0px;
+    border-color: #bcc3c6 #aeb4b7 #bcc3c6 #aeb4b7;
+    padding: 2% 2% 2% 2%;
+}
+
+.recommandation {
+    display: inline;
+    text-decoration: underline;
+    color: #99CC00;
+}
+
+.btn-aequam {
+    color: #038FFA;
+    background-color: #FFFFFF;
+    border-color: #038FFA;
+}
+
+.btn-aequam:hover,
+.btn-aequam:focus,
+.btn-aequam:active,
+.btn-aequam.active,
+.open .dropdown-toggle.btn-aequam {
+    color: #038FFA;
+    background-color: #4FF5F5;
+    border-color: #038FFA;
+}
+
+.btn-aequam:active,
+.btn-aequam.active,
+.open .dropdown-toggle.btn-aequam {
+    background-image: none;
+}
+
+.btn-aequam.disabled,
+.btn-aequam[disabled],
+fieldset[disabled] .btn-aequam,
+.btn-aequam.disabled:hover,
+.btn-aequam[disabled]:hover,
+fieldset[disabled] .btn-aequam:hover,
+.btn-aequam.disabled:focus,
+.btn-aequam[disabled]:focus,
+fieldset[disabled] .btn-aequam:focus,
+.btn-aequam.disabled:active,
+.btn-aequam[disabled]:active,
+fieldset[disabled] .btn-aequam:active,
+.btn-aequam.disabled.active,
+.btn-aequam[disabled].active,
+fieldset[disabled] .btn-aequam.active {
+    background-color: #FFFFFF;
+    border-color: #038FFA;
+}
+
+.btn-aequam .badge {
+    color: #FFFFFF;
+    background-color: #038FFA;
+}
+
+.btn-save {
+    color: #ffffff;
+    background-color: #4695FC;
+    border-color: #6aa9fc;
+}
+
+.btn-save:hover,
+.btn-save:focus,
+.btn-save:active,
+.btn-save.active,
+.open .dropdown-toggle.btn-save {
+    color: #ffffff;
+    background-color: #465EFC;
+    border-color: #6aa9fc;
+}
+
+.btn-save:active,
+.btn-save.active,
+.open .dropdown-toggle.btn-save {
+    background-image: none;
+}
+
+.btn-save.disabled,
+.btn-save[disabled],
+fieldset[disabled] .btn-save,
+.btn-save.disabled:hover,
+.btn-save[disabled]:hover,
+fieldset[disabled] .btn-save:hover,
+.btn-save.disabled:focus,
+.btn-save[disabled]:focus,
+fieldset[disabled] .btn-save:focus,
+.btn-save.disabled:active,
+.btn-save[disabled]:active,
+fieldset[disabled] .btn-save:active,
+.btn-save.disabled.active,
+.btn-save[disabled].active,
+fieldset[disabled] .btn-save.active {
+    background-color: #4695FC;
+    border-color: #6aa9fc;
+}
+
+.btn-save .badge {
+    color: #4695FC;
+    background-color: #ffffff;
+}

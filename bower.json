@@ -1,0 +1,21 @@
+{
+  "name": "aequam",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Like-Jean <guo.like.jean@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "seiyria-bootstrap-slider": "^9.7.2",
+    "highcharts": "^5.0.9"
+  }
+}
